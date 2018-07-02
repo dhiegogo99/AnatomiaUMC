@@ -7,7 +7,6 @@
 		transaction-type="JTA">
 		<description>Dev persistence unit</description>
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>org.phstudy.entity.Travel</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:jtds:sqlserver://localhost:49702/hibernate" />
@@ -16,7 +15,6 @@
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="javax.persistence.jdbc.password"
 				value="study" />
-
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 			<!-- <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2008Dialect" 
 				/> -->
