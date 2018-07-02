@@ -1,0 +1,72 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templateRanking.xhtml">
+
+
+
+	<ui:define name="corpo">
+		<title>Ranking Geral</title>
+
+
+		<h:form>
+			<br />
+			<h2 style="text-align: center">Ranking Geral Copa-Stefanini</h2>
+			<br />
+
+			<p:separator />
+
+			<p:dataTable paginator="true" rows="20" lazy="true"
+				value="#{rankingBean.listProductTeam}" var="pt">
+				<p:column headerText="Time" groupRow="true">
+					<p:row>
+						<h:outputText value="#{pt.nomeTime}" />
+					</p:row>
+				</p:column>
+
+				<p:column headerText="Data de Inclusão" >
+					<p:row>
+						<h:outputText value="#{pt.dtConclusion}">
+							<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:row>
+
+
+				</p:column>
+
+				<p:column headerText="Categoria" >
+					<p:row>
+						<h:outputText value="#{pt.categoriaItem}" />
+					</p:row>
+				</p:column>
+
+				<p:column headerText="Item">
+					<p:row>
+						<h:outputText value="#{pt.nomeItem}" />
+					</p:row>
+				</p:column>
+				<p:column headerText="QTD_UNID">
+					<p:row>
+						<h:outputText value="#{pt.QTD_UniMed}" />
+					</p:row>
+				</p:column>
+				<p:column headerText="Pontos">
+					<p:row>
+						<h:outputText value="#{pt.productScore}" />
+					</p:row>
+				</p:column>
+				<p:column headerText="Total" groupRow="true">
+					<p:row>
+						<h:outputText value="#{pt.pontos}" />
+					</p:row>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+
+
+
+	</ui:define>
+
+</ui:composition>
