@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/vendor/bootstrap/css/bootstrap.min.css">
     <!-- Fontastic Custom icon font-->
-    <link rel="stylesheet" href="css/fontastic.css">
+    <link rel="stylesheet" href="resources/css/fontastic.css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/vendor/font-awesome/css/font-awesome.min.css">
     <!-- Google fonts - Poppins -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="resources/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="resources/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -97,7 +97,8 @@
                   </ul>
                 </li>
                 <!-- Logout    -->
-                <li class="nav-item"><a href="login.html" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                <form id="logoutForm" method="POST" th:action="@{/logout}"></form>
+                <li class="nav-item"><a href="#" onclick="document.forms['logoutForm'].submit()" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -108,7 +109,7 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="resources/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4">Zema</h1>
               <p>Admim</p>
@@ -255,7 +256,7 @@
                 <div class="row bg-white has-shadow">
                   <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                     <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="img/project-1.jpg" alt="..." class="img-fluid"></div>
+                      <div class="image has-shadow"><img src="resources/img/project-1.jpg" alt="..." class="img-fluid"></div>
                       <div class="text">
                         <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                       </div>
@@ -278,7 +279,7 @@
                 <div class="row bg-white has-shadow">
                   <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                     <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="img/project-2.jpg" alt="..." class="img-fluid"></div>
+                      <div class="image has-shadow"><img src="resources/img/project-2.jpg" alt="..." class="img-fluid"></div>
                       <div class="text">
                         <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                       </div>
@@ -301,7 +302,7 @@
                 <div class="row bg-white has-shadow">
                   <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                     <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="img/project-3.jpg" alt="..." class="img-fluid"></div>
+                      <div class="image has-shadow"><img src="resources/img/project-3.jpg" alt="..." class="img-fluid"></div>
                       <div class="text">
                         <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                       </div>
@@ -324,7 +325,7 @@
                 <div class="row bg-white has-shadow">
                   <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                     <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="img/project-4.jpg" alt="..." class="img-fluid"></div>
+                      <div class="image has-shadow"><img src="resources/img/project-4.jpg" alt="..." class="img-fluid"></div>
                       <div class="text">
                         <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                       </div>
@@ -376,7 +377,7 @@
                       </div>
                     </div>
                     <div class="card-body text-center">
-                      <div class="client-avatar"><img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle">
+                      <div class="client-avatar"><img src="resources/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle">
                         <div class="status bg-green"></div>
                       </div>
                       <div class="client-title">
@@ -433,27 +434,27 @@
                     </div>
                     <div class="card-body no-padding">
                       <div class="item d-flex align-items-center">
-                        <div class="image"><img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="image"><img src="resources/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#">
                             <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Aria Smith.   </small></div>
                       </div>
                       <div class="item d-flex align-items-center">
-                        <div class="image"><img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="image"><img src="resources/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#">
                             <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Frank Williams.   </small></div>
                       </div>
                       <div class="item d-flex align-items-center">
-                        <div class="image"><img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="image"><img src="resources/img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#">
                             <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Ashley Wood.   </small></div>
                       </div>
                       <div class="item d-flex align-items-center">
-                        <div class="image"><img src="img/avatar-4.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="image"><img src="resources/img/avatar-4.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#">
                             <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Jason Doe.   </small></div>
                       </div>
                       <div class="item d-flex align-items-center">
-                        <div class="image"><img src="img/avatar-5.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="image"><img src="resources/img/avatar-5.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#">
                             <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Sam Martinez.   </small></div>
                       </div>
@@ -707,12 +708,12 @@
     </div>
     <!-- Javascript files-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="resources/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="resources/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="resources/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="js/charts-home.js"></script>
-    <script src="js/front.js"></script>
+    <script src="resources/js/charts-home.js"></script>
+    <script src="resources/js/front.js"></script>
   </body>
 </html>

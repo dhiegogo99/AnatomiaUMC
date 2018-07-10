@@ -45,17 +45,19 @@
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form id="login-form" method="post" action="loginServlet">
+                  <form id="login-form" method="post">
                     <div class="form-group">
                       <input id="login-username" type="text" name="loginUsername" required="" class="input-material">
                       <label for="login-username" class="label-material">RGM</label>
                     </div>
                     <div class="form-group">
-                      <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
-                      <label for="login-password" class="label-material">Senha</label>
+                    </div><a id="login" href="cadastro.html" class="btn btn-primary">Cadastrar</a>
+                       <div class="form-group terms-conditions">
+                      <input id="license" type="checkbox" class="checkbox-template">
+                      <label for="license">Aceite os Termos de Segurança e Privacidade</label>
                     </div>
-                    <input type="submit" id="login" class="btn btn-primary" value="Entrar" >
-                  </form><a href="resetSenha.html" class="forgot-pass">Esqueceu sua senha?</a><br><small>Para primeiro acesso clique aqui! </small><a href="register.html" class="signup">Cadastrar</a>
+                    <!-- This should be submit button but I replaced it with <a> for demo purposes-->
+                  </form>
                 </div>
               </div>
             </div>
