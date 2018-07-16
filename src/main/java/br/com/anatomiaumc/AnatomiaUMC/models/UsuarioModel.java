@@ -41,6 +41,10 @@ public class UsuarioModel {
 	
 	@Column(name = "Senha")
 	private String senha;
+	
+	@Column(name = "Status")
+	private Boolean Status;
+
 
 	@OneToOne
 	@JoinColumn(name = "IDTipo")
@@ -60,7 +64,7 @@ public class UsuarioModel {
 	
 	@OneToOne
 	@JoinColumn(name = "IDRGM")
-	private rgmModel RGM;
+	private RgmModel RGM;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "users_roles", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {@JoinColumn(name = "role_id") })

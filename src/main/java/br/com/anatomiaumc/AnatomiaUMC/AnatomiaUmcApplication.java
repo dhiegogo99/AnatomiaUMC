@@ -11,6 +11,7 @@ public class AnatomiaUmcApplication  {
 	public static void main(String[] args) {
 		SpringApplication.run(AnatomiaUmcApplication.class, args);
 	}
+	
 	@Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();

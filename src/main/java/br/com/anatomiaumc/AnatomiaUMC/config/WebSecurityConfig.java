@@ -26,6 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/resources/**")
 				.permitAll().anyRequest().authenticated()
+				.antMatchers("/InsereRGM").permitAll()
 				.antMatchers("/indexAluno").hasRole("ALUNO")
 				.antMatchers("/indexAdm").hasRole("ADM")
 				.antMatchers("/indexProfessor").hasRole("PROFESSOR")
