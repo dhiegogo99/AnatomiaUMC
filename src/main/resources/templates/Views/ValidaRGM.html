@@ -47,45 +47,30 @@
 						</div>
 					</div>
 					<!-- Form Panel    -->
+
 					<div class="col-lg-6 bg-white">
 						<div class="form d-flex align-items-center">
 							<div class="content">
-								
-								<form id="login-form" method="post">
-									<div class="form-group">
-										<input id="login-username" type="text" name="loginUsername"
-											required="" class="input-material"> <label
-											for="login-username" class="label-material">Nome
-											Completo</label>
+								<form id="login-form" method="post"
+									enctype="multipart/form-data" th:action="@{VerificaRGM}">
+									<div th:if="${error}">
+										<div class="alert alert-danger">RGM não encontrado</div>
 									</div>
 									<div class="form-group">
-										<input id="login-username" type="text" name="loginUsername"
-											required="" class="input-material"> <label
-											for="login-username" class="label-materialcol-lg-2">Curso</label>
+										<input id="RGM" type="text" name="RGM" required=""
+											class="input-material"> <label for="login-username"
+											class="label-material">RGM</label>
 									</div>
-									<div class="form-group">
-										<input id="login-username" type="date" name="loginUsername"
-											required="" class="input-material"> <label
-											for="login-username" style="background-color: beige"
-											class="label-material">Data de Nascimento</label>
+									<div class="form-group"></div>
+									<input type="submit" class="btn btn-primary" value="Cadastrar">
+									<br />
+									
+									<br />
+									<div class="form-group terms-conditions">
+										<input id="license" type="checkbox" class="checkbox-template"
+											required="required"> <label for="license">Aceite
+											os Termos de Segurança e Privacidade</label>
 									</div>
-									<div class="form-group">
-										<input id="login-username" type="text" name="loginUsername"
-											required="" class="input-material"> <label
-											for="login-username" style="background-color: beige"
-											class="label-material">RG</label>
-									</div>
-									<div class="form-group">
-										<input id="login-username" type="text" name="loginUsername"
-											required="" class="input-material"> <label
-											for="login-username" class="label-material">CPF</label>
-									</div>
-									<div class="form-group">
-										<input id="login-password" type="password"
-											name="loginPassword" required class="input-material">
-										<label for="login-password" class="label-material">Senha</label>
-									</div>
-									<a id="login" href="index.html" class="btn btn-primary">Cadastrar</a>
 									<!-- This should be submit button but I replaced it with <a> for demo purposes-->
 								</form>
 							</div>

@@ -35,13 +35,15 @@ public class InsereRGMController {
 		return "Views/InsereRGM";
 	}
 
-//	// @RequestMapping(value = "/insereRGM", method = RequestMethod.POST)
-//	private void Insere(File arquivo) throws FileNotFoundException, IOException {
-//		System.out.println(arquivo.getName());
-//		// HSSFWorkbook workbook = new HSSFWorkbook(new
-//		// FileInputStream(arquivo));
-//
-//	}
+	// // @RequestMapping(value = "/insereRGM", method = RequestMethod.POST)
+	// private void Insere(File arquivo) throws FileNotFoundException,
+	// IOException {
+	// System.out.println(arquivo.getName());
+	// // HSSFWorkbook workbook = new HSSFWorkbook(new
+	// // FileInputStream(arquivo));
+	//
+	// }
+	
 	@PostMapping("/insereRGM")
 	public String uploadMultipartFile(
 			@RequestParam("arquivo") MultipartFile file, Model model) {
@@ -51,7 +53,6 @@ public class InsereRGMController {
 			Iterator<Row> rowIterator = mySheet.iterator();
 			while (rowIterator.hasNext()) {
 				Row row = rowIterator.next();
-				// For each row, iterate through each columns
 				Iterator<Cell> cellIterator = row.cellIterator();
 				while (cellIterator.hasNext()) {
 					Cell cell = cellIterator.next();
