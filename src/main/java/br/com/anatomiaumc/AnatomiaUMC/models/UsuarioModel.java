@@ -22,52 +22,29 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = "USUARIO")
 @Data
-@EqualsAndHashCode(exclude="roles")
+@EqualsAndHashCode(exclude = "roles")
 public class UsuarioModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDUsuario")
 	private Long idUsuario;
-
 	@Column(name = "Nome")
 	private String nome;
-
 	@Column(name = "Email")
 	private String email;
-
-	@Column(name = "TelefoneUsuario")
-	private String TelUsuario;
-	
+	@Column(name = "Login")
+	private String login;
 	@Column(name = "Senha")
 	private String senha;
-	
 	@Column(name = "Status")
 	private Boolean Status;
-
-
-	@OneToOne
-	@JoinColumn(name = "IDTipo")
-	private TipoUsuarioModel TipoUsuario;
-
-	@OneToOne
-	@JoinColumn(name = "IDTurno")
-	private TurnoModel TurnoUsuario;
-
 	@OneToOne
 	@JoinColumn(name = "IDCurso")
 	private CursoModel CursoUsuario;
 
-	@OneToOne
-	@JoinColumn(name = "IDSemestre")
-	private SemestreModel SemestreUsuario;
-	
-	@OneToOne
-	@JoinColumn(name = "IDRGM")
-	private RgmModel RGM;
-
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "users_roles", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {@JoinColumn(name = "role_id") })
+	@JoinTable(name = "users_roles", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	private Set<Role> roles = new HashSet<>();
-	
+
 }

@@ -12,10 +12,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	CustomizeAuthenticationSuccessHandler customizeAuthenticationSuccessHandler;
-	
+
 	@Autowired
 	private UserDetailsService userDetailsService;
 
@@ -24,27 +24,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/resources/**")
-				.permitAll().anyRequest().authenticated()
-				.antMatchers("/InsereRGM").permitAll()
+		http.authorizeRequests().antMatchers("/resources/**").permitAll()
+				.anyRequest().authenticated()
 				.antMatchers("/indexAluno").hasRole("ALUNO")
 				.antMatchers("/indexAdm").hasRole("ADM")
 				.antMatchers("/indexProfessor").hasRole("PROFESSOR")
+				.antMatchers("/insereRGM").hasRole("ADM")
+				.antMatchers("/VerificaRGM").permitAll()
 				.and().formLogin()
 				.successHandler(customizeAuthenticationSuccessHandler)
-				.loginPage("/login").permitAll()
-				.and().logout().permitAll();
+				.loginPage("/login").permitAll().and().logout().permitAll();
 		http.exceptionHandling().accessDeniedPage("/403");
 	}
 
-	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)
 			throws Exception {
-		
+
 		super.configure(auth);
 	}
-	
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {

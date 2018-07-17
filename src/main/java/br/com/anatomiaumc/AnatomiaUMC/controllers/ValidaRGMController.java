@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.anatomiaumc.AnatomiaUMC.models.RgmModel;
-import br.com.anatomiaumc.AnatomiaUMC.repositories.RgmRepository;
+import br.com.anatomiaumc.AnatomiaUMC.models.UsuarioModel;
+import br.com.anatomiaumc.AnatomiaUMC.repositories.UsuarioRepository;
 
 @Controller
 public class ValidaRGMController {
 
 	@Autowired
-	RgmRepository rr;
+	UsuarioRepository rr;
 
 	@GetMapping("/VerificaRGM")
 	public String VerificaRGM() {
@@ -31,26 +31,25 @@ public class ValidaRGMController {
 	}
 
 	@RequestMapping(value="/VerificaRGM")
-	public String ValidaRGM(@RequestParam("RGM") String RGM, Model model) throws IOException {
+	public String ValidaRGM(@RequestParam("login") String login, Model model) throws IOException {
 		String url = "";
-		RgmModel Resp = rr.findByRGM(RGM);
+		UsuarioModel Resp = rr.findByLogin(login);
 		
-		if ((Resp)!= null) {
-
-			url=  "Views/cadastro";
-		} else {
+		if (((Resp)!= null) && !Resp.getStatus()) {
+			model.addAttribute("id",login);
+			url=  "redirect:/cadastroAluno";
+		} else if (Resp == null){
 			model.addAttribute("error",true);
 			url= "Views/ValidaRGM";
-
-		}
-		ModelAndView modelAndView = new ModelAndView(url);
+			}else if(Resp.getStatus()){
+				
+				model.addAttribute("existe",true);
+				url= "Views/ValidaRGM";
+			}
 		return url;
 	}
 	
-	@GetMapping(value="/cadastroAluno")
-	public String CadastrarAluno() {
-		return "Views/cadastro";
-	}
+	
 	
 
 }

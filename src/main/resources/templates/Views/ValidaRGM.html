@@ -56,21 +56,27 @@
 									<div th:if="${error}">
 										<div class="alert alert-danger">RGM não encontrado</div>
 									</div>
+									
+									<div th:if="${existe}">
+										<div class="alert alert-danger">Ja existe um usuario cadastrado com este RGM</div>
+									</div>
+
 									<div class="form-group">
-										<input id="RGM" type="text" name="RGM" required=""
+										<input id="login" type="text" name="login" required=""
 											class="input-material"> <label for="login-username"
 											class="label-material">RGM</label>
+									</div>
+																		<div class="form-group terms-conditions">
+										<input id="license" type="checkbox" class="checkbox-template"
+											required> <label for="license">Aceite
+											os Termos de Segurança e Privacidade</label>
 									</div>
 									<div class="form-group"></div>
 									<input type="submit" class="btn btn-primary" value="Cadastrar">
 									<br />
 									
 									<br />
-									<div class="form-group terms-conditions">
-										<input id="license" type="checkbox" class="checkbox-template"
-											required="required"> <label for="license">Aceite
-											os Termos de Segurança e Privacidade</label>
-									</div>
+									
 									<!-- This should be submit button but I replaced it with <a> for demo purposes-->
 								</form>
 							</div>
