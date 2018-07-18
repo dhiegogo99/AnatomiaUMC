@@ -34,7 +34,7 @@ public class InsereRGMController {
 
 	@GetMapping("/insereRGM")
 	public String insereRGM() {
-		return "Views/InsereRGM";
+		return "Views/admin/InsereRGM";
 	}
 
 	// // @RequestMapping(value = "/insereRGM", method = RequestMethod.POST)
@@ -72,7 +72,7 @@ public class InsereRGMController {
 			model.addAttribute("message",
 					"Fail! -> uploaded filename: " + file.getOriginalFilename());
 		}
-		return "Views/InsereRGM";
+		return "Views/admin/InsereRGM";
 	}
 
 	public File multipartToFile(MultipartFile multipart)

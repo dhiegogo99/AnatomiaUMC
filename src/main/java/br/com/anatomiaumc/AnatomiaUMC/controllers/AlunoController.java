@@ -8,7 +8,7 @@ public class AlunoController {
 
 	@GetMapping("/indexAluno")
 	public String indexAluno(){
-		return "Views/indexAluno";
+		return "Views/aluno/indexAluno";
 	}
 	
 }

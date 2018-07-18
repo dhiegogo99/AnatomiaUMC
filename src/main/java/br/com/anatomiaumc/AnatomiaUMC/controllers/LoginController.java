@@ -8,7 +8,7 @@ public class LoginController {
 
 	@GetMapping("/login")
 	public String login(){
-		return "Views/login";
+		return "Views/all/login";
 	}
 	
 	
@@ -16,7 +16,7 @@ public class LoginController {
 	
 	@GetMapping("/novaSenha")
 	public String novaSenha(){
-		return "Views/resetSenha";
+		return "Views/all/resetSenha";
 	}
 	
 		

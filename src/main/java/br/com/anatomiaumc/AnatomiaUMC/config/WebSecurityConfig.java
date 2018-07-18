@@ -24,18 +24,66 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/resources/**").permitAll()
-				.anyRequest().authenticated()
-				.antMatchers("/indexAluno").hasRole("ALUNO")
-				.antMatchers("/indexAdm").hasRole("ADM")
-				.antMatchers("/indexProfessor").hasRole("PROFESSOR")
-				.antMatchers("/insereRGM").hasRole("ADM")
-				.antMatchers("/VerificaRGM").permitAll()
-				.and().formLogin()
-				.successHandler(customizeAuthenticationSuccessHandler)
-				.loginPage("/login").permitAll().and().logout().permitAll();
+		http.authorizeRequests()
+				.antMatchers("/resources/**").permitAll()
+				.antMatchers("/all/**").permitAll()
+				.antMatchers("/VerificaRGM").not().authenticated()
+				
+				//aluno
+				.antMatchers("/indexAluno").hasAuthority("ALUNO")
+				
+				
+				
+				//professor
+				.antMatchers("/indexProfessor").hasAuthority("PROFESSOR")
+				
+				
+				
+				//adm
+				.antMatchers("/indexAdm").hasAuthority("ADM")
+				.antMatchers("/insereRGM").hasAuthority("ADM")
+				
+				
+				
+				.and()
+				
+			.formLogin()
+					.successHandler(customizeAuthenticationSuccessHandler)
+					.loginPage("/login").permitAll()
+				.and()
+				
+			.logout()
+				.permitAll();
+		
 		http.exceptionHandling().accessDeniedPage("/403");
 	}
+	
+	
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+//		http.authorizeRequests()
+//		
+//				.anyRequest().authenticated()
+//		
+//				.antMatchers("/resources/**").permitAll()
+//				.antMatchers("/VerificaRGM").permitAll()
+//				.antMatchers("/indexAluno").access("hasRole('ALUNO')")
+//				.antMatchers("/indexAdm").access("hasRole('ADM')")
+//				.antMatchers("/indexProfessor").access("hasRole('PROFESSOR')")
+//				.antMatchers("/insereRGM").access("hasRole('ADM')")
+//				
+//				.and()
+//				
+//			.formLogin()
+//					.successHandler(customizeAuthenticationSuccessHandler)
+//					.loginPage("/login").permitAll()
+//				.and()
+//				
+//			.logout()
+//				.permitAll();
+//		
+//		http.exceptionHandling().accessDeniedPage("/403");
+//	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)

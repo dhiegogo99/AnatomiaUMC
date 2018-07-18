@@ -8,7 +8,7 @@ public class ProfessorController {
 
 	@GetMapping("/indexProfessor")
 	public String indexProfessor(){
-		return "Views/indexProf";
+		return "Views/professor/indexProf";
 	}
 	
 }

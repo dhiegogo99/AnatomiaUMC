@@ -21,7 +21,7 @@ public class ValidaRGMController {
 
 	@GetMapping("/VerificaRGM")
 	public String VerificaRGM() {
-		return "Views/ValidaRGM";
+		return "Views/all/ValidaRGM";
 	}
 
 //	@GetMapping("/goToViewPage")
@@ -40,12 +40,11 @@ public class ValidaRGMController {
 			url=  "redirect:/cadastroAluno";
 		} else if (Resp == null){
 			model.addAttribute("error",true);
-			url= "Views/ValidaRGM";
-			}else if(Resp.getStatus()){
-				
-				model.addAttribute("existe",true);
-				url= "Views/ValidaRGM";
-			}
+			url= "Views/all/ValidaRGM";
+		}else if(Resp.getStatus()){
+			model.addAttribute("existe",true);
+			url= "Views/all/ValidaRGM";
+		}
 		return url;
 	}
 	

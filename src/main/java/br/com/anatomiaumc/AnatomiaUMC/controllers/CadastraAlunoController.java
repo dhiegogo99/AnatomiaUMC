@@ -24,7 +24,7 @@ public class CadastraAlunoController {
 
 	@GetMapping(value = "/cadastroAluno")
 	public String CadastrarAluno() {
-		return "Views/cadastro";
+		return "Views/all/cadastro";
 	}
 
 	@RequestMapping(value = "/cadastroAluno")
