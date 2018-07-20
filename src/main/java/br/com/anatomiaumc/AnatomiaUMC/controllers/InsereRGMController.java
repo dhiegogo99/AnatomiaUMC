@@ -59,12 +59,17 @@ public class InsereRGMController {
 				while (cellIterator.hasNext()) {
 					Cell cell = cellIterator.next();
 					DataFormatter formatter = new DataFormatter();
+					if(formatter.formatCellValue(cell).toString().length() == 11){
+						
+					
+				
 					UsuarioModel user = new UsuarioModel();
 					user.setLogin(formatter.formatCellValue(cell).toString());
 					Role role = new Role();
 					Set<Role>roles = null;
 					user.setStatus(false);
 					userRepo.save(user);
+					}
 				}
 			}
 			myWorkBook.close();

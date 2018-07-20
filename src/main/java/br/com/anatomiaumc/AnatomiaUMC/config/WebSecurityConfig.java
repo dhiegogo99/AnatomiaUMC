@@ -1,6 +1,7 @@
 package br.com.anatomiaumc.AnatomiaUMC.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,6 +9,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.access.AccessDeniedHandler;
+
+import br.com.anatomiaumc.AnatomiaUMC.controllers.CustomAccessDeniedHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -16,6 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	CustomizeAuthenticationSuccessHandler customizeAuthenticationSuccessHandler;
 
+	
 	@Autowired
 	private UserDetailsService userDetailsService;
 
@@ -28,6 +33,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/resources/**").permitAll()
 				.antMatchers("/all/**").permitAll()
 				.antMatchers("/VerificaRGM").not().authenticated()
+				.antMatchers("/login").not().authenticated()
+				.antMatchers("/cadastroAluno").not().authenticated()
+				
 				
 				//aluno
 				.antMatchers("/indexAluno").hasAuthority("ALUNO")
@@ -55,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.logout()
 				.permitAll();
 		
-		http.exceptionHandling().accessDeniedPage("/403");
+		http.exceptionHandling().accessDeniedHandler(accessDeniedHandler());
 	}
 	
 	
@@ -96,6 +104,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configureGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
+	}
+	
+	@Bean
+	public AccessDeniedHandler accessDeniedHandler(){
+	    return new CustomAccessDeniedHandler();
 	}
 
 }
