@@ -2,6 +2,8 @@ package br.com.anatomiaumc.AnatomiaUMC.controllers;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,12 +33,13 @@ public class ValidaRGMController {
 	}
 
 	@RequestMapping(value="/VerificaRGM")
-	public String ValidaRGM(@RequestParam("login") String login, Model model) throws IOException {
+	public String ValidaRGM(@RequestParam("login") String login, Model model, HttpSession session) throws IOException {
 		String url = "";
 		UsuarioModel Resp = rr.findByLogin(login);
 		
 		if (((Resp)!= null) && !Resp.getStatus()) {
 			model.addAttribute("id",login);
+			session.setAttribute("login", Resp.getLogin());
 			url=  "redirect:/cadastroAluno";
 		} else if (Resp == null){
 			model.addAttribute("error",true);

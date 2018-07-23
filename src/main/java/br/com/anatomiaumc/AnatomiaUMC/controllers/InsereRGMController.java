@@ -2,6 +2,7 @@ package br.com.anatomiaumc.AnatomiaUMC.controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -20,12 +21,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import br.com.anatomiaumc.AnatomiaUMC.models.Role;
 import br.com.anatomiaumc.AnatomiaUMC.models.UsuarioModel;
+import br.com.anatomiaumc.AnatomiaUMC.repositories.RolesRepository;
 import br.com.anatomiaumc.AnatomiaUMC.repositories.UsuarioRepository;
 import br.com.anatomiaumc.AnatomiaUMC.services.FileStorage;
 
 @Controller
 public class InsereRGMController {
-
+	@Autowired
+	RolesRepository rolesrepo;
 	@Autowired
 	FileStorage fileStorage;
 
@@ -45,7 +48,7 @@ public class InsereRGMController {
 	// // FileInputStream(arquivo));
 	//
 	// }
-	
+
 	@PostMapping("/insereRGM")
 	public String uploadMultipartFile(
 			@RequestParam("arquivo") MultipartFile file, Model model) {
@@ -59,16 +62,21 @@ public class InsereRGMController {
 				while (cellIterator.hasNext()) {
 					Cell cell = cellIterator.next();
 					DataFormatter formatter = new DataFormatter();
-					if(formatter.formatCellValue(cell).toString().length() == 11){
-						
-					
-				
-					UsuarioModel user = new UsuarioModel();
-					user.setLogin(formatter.formatCellValue(cell).toString());
-					Role role = new Role();
-					Set<Role>roles = null;
-					user.setStatus(false);
-					userRepo.save(user);
+					if (formatter.formatCellValue(cell).toString().length() == 11) {
+
+						UsuarioModel user = new UsuarioModel();
+						user.setLogin(formatter.formatCellValue(cell)
+								.toString());
+						Set<Role> roles = new HashSet<Role>();
+
+						Role role = new Role();
+						role = rolesrepo.findByRole("ALUNO");
+						roles.add(role);
+						user.setRoles(roles);
+						user.setStatus(false);
+						user.setLogin(formatter.formatCellValue(cell)
+								.toString());
+						userRepo.save(user);
 					}
 				}
 			}

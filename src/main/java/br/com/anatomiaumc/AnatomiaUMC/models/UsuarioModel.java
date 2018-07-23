@@ -19,6 +19,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.springframework.context.annotation.Bean;
 @Entity
 @Table(name = "USUARIO")
 @Data

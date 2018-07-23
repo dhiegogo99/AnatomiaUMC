@@ -54,17 +54,25 @@
 								<div th:if="${senhaerror}">
 									<div class="alert alert-danger">As senhas não coincidem</div>
 								</div>
-								
-								
-								<form name="Aluno" id="login-form" method="post"  enctype="multipart/form-data" th:action="@{cadastroAluno}"> 
-									
-									
+
+
+								<form name="Aluno" id="login-form" method="post"
+									enctype="multipart/form-data" th:action="@{cadastroAluno}">
+
 									<div class="form-group">
-										<input id="login-username" type="text" name="nome"
-											required="" class="input-material"> <label
-											for="login-username" class="label-material">Nome
-											Completo</label>
+									<label for="login-username"
+											class="label-material">login</label>
+										<input id="login-username" type="text" name="login" 
+											class="input-material" th:value="${login}" disabled> 
 									</div>
+
+									<div class="form-group">
+										<input id="login-username" type="text" name="nome" required=""
+											class="input-material"> <label for="login-username"
+											class="label-material">Nome Completo</label>
+									</div>
+
+
 
 									<div class="form-group">
 										<input id="login-username" type="text" name="email"
@@ -79,17 +87,18 @@
 									</div>
 
 									<div class="form-group">
-										<input id="login-password" type="password"
-											name="senha" required class="input-material">
-										<label for="login-password" class="label-material">Senha</label>
+										<input id="login-password" type="password" name="senha"
+											required class="input-material"> <label
+											for="login-password" class="label-material">Senha</label>
 									</div>
-									
-										<div class="form-group">
+
+									<div class="form-group">
 										<input id="login-password" type="password"
 											name="confirmasenha" required class="input-material">
-										<label for="login-password" class="label-material">Confirme sua senha</label>
+										<label for="login-password" class="label-material">Confirme
+											sua senha</label>
 									</div>
-									
+
 									<input type="submit" class="btn btn-primary" value="Cadastrar">
 									<!-- This should be submit button but I replaced it with <a> for demo purposes-->
 								</form>
