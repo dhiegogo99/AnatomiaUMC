@@ -27,7 +27,7 @@ import br.com.anatomiaumc.AnatomiaUMC.services.FileStorage;
 import br.com.anatomiaumc.AnatomiaUMC.util.Validacoes;
 
 @Controller
-public class InsereRGMController {
+public class InsereChapaController {
 	
 	Validacoes valida = new Validacoes();
 
@@ -39,9 +39,9 @@ public class InsereRGMController {
 	@Autowired
 	UsuarioRepository userRepo;
 
-	@GetMapping("/insereRGM")
-	public String insereRGM() {
-		return "Views/admin/InsereRGM";
+	@GetMapping("/insereChapa")
+	public String insereChapa() {
+		return "Views/admin/InsereChapa";
 	}
 
 	// // @RequestMapping(value = "/insereRGM", method = RequestMethod.POST)
@@ -53,7 +53,7 @@ public class InsereRGMController {
 	//
 	// }
 
-	@PostMapping("/insereRGM")
+	@PostMapping("/insereChapa")
 	public String uploadMultipartFile(
 			@RequestParam("arquivo") MultipartFile file, Model model) {
 		try {
@@ -68,21 +68,22 @@ public class InsereRGMController {
 					DataFormatter formatter = new DataFormatter();
 					String teste = formatter.formatCellValue(cell)
 							.toString();
-					if (valida.validaAluno(teste)) {
+					if (valida.validaProfessor(teste)) {
 						
 						UsuarioModel user = new UsuarioModel();
 						user.setLogin(formatter.formatCellValue(cell)
 								.toString());
 						Set<Role> roles = new HashSet<Role>();
 						Role role = new Role();
-						role = rolesrepo.findByRole("ALUNO");
+						role = rolesrepo.findByRole("PROFESSOR");
 						roles.add(role);
 						user.setRoles(roles);
 						user.setStatus(false);
 						user.setLogin(formatter.formatCellValue(cell)
 								.toString());
 						userRepo.save(user);
-				
+						
+					
 					}
 				}
 			}
@@ -91,7 +92,7 @@ public class InsereRGMController {
 			model.addAttribute("message",
 					"Fail! -> uploaded filename: " + file.getOriginalFilename());
 		}
-		return "Views/admin/InsereRGM";
+		return "Views/admin/insereChapa";
 	}
 
 	public File multipartToFile(MultipartFile multipart)

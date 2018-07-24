@@ -64,6 +64,7 @@ public class CadastraAlunoController {
 				
 				url = "redirect:login";
 			}else{
+				model.addAttribute("login", session.getAttribute("login"));
 				model.addAttribute("senhaerror",true);
 				url = "Views/all/cadastro";
 			}

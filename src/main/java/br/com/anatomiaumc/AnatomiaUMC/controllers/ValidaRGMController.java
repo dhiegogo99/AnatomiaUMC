@@ -21,7 +21,7 @@ public class ValidaRGMController {
 	@Autowired
 	UsuarioRepository rr;
 
-	@GetMapping("/VerificaRGM")
+	@GetMapping("/VerificaLogin")
 	public String VerificaRGM() {
 		return "Views/all/ValidaRGM";
 	}
@@ -32,7 +32,7 @@ public class ValidaRGMController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value="/VerificaRGM")
+	@RequestMapping(value="/VerificaLogin")
 	public String ValidaRGM(@RequestParam("login") String login, Model model, HttpSession session) throws IOException {
 		String url = "";
 		UsuarioModel Resp = rr.findByLogin(login);

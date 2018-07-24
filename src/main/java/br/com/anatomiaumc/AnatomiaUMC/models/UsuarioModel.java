@@ -40,6 +40,8 @@ public class UsuarioModel {
 	private String senha;
 	@Column(name = "Status")
 	private Boolean Status;
+	@Column(name = "reset_token")
+	private String resetToken;
 	@OneToOne
 	@JoinColumn(name = "IDCurso")
 	private CursoModel CursoUsuario;
