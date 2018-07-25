@@ -1571,21 +1571,21 @@ section.charts div[class*="col-"] {
   font-size: 0.9em;
   font-weight: 300;
   font-family: "Poppins", sans-serif;
-  color: #aaa;
+  color: #fff;
 }
 
 .form-control::-webkit-input-placeholder {
   font-size: 0.9em;
   font-weight: 300;
   font-family: "Poppins", sans-serif;
-  color: #aaa;
+  color: #fff;
 }
 
 .form-control:-ms-input-placeholder {
   font-size: 0.9em;
   font-weight: 300;
   font-family: "Poppins", sans-serif;
-  color: #aaa;
+  color: #fff;
 }
 
 .form-control:focus {
@@ -1601,7 +1601,7 @@ section.charts div[class*="col-"] {
 }
 
 .form-control-label {
-  color: #777;
+  color: #fff;
   font-weight: 300;
 }
 
@@ -1612,8 +1612,8 @@ button, input[type='submit'] {
 }
 
 form label {
-  font-size: 0.9em;
-  color: #777;
+  font-size: 15px;
+  color: #fff;
   font-weight: 300;
 }
 

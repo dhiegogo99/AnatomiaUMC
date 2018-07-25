@@ -64,7 +64,7 @@ public class PasswordController {
 			passwordResetEmail.setFrom("am.png@gmail.com");
 			
 			passwordResetEmail.setTo(user.getEmail());
-			passwordResetEmail.setSubject("Password Reset Request");
+			passwordResetEmail.setSubject("Nova Senha");
 			passwordResetEmail.setText("Clique aki para gerar sua nova senha caralhuda\n" + appUrl
 					+ ":9005/reset?token=" + user.getResetToken());
 			

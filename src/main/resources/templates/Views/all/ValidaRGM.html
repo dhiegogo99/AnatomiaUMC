@@ -52,7 +52,7 @@
 						<div class="form d-flex align-items-center">
 							<div class="content">
 								<form id="login-form" method="post"
-									enctype="multipart/form-data" th:action="@{VerificaLogin}">
+									enctype="multipart/form-data" th:action="@{VerificaRGM}">
 									<div th:if="${error}">
 										<div class="alert alert-danger">RGM não encontrado</div>
 									</div>
@@ -62,13 +62,16 @@
 									</div>
 
 									<div class="form-group">
-										<input id="login" type="text" name="login" required=""
+										<input id="login" type="text" name="login" required=login"
 											class="input-material"> <label for="login-username"
-											class="label-material">RGM</label>
+											class="label-material">INDENTIFICADOR</label>
+											 <button type="button" style="background-color: #796AEE; border-radius: 50px;color: white;padding: 1px 8px;
+                                  text-align: center;text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; " 
+                                  class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="ALUNO - REFERENTE AO SEU RGM / PROFESSOR - REFERNTE A SUA CHAPA"> ? </button>
 									</div>
-																		<div class="form-group terms-conditions">
-										<input id="license" type="checkbox" class="checkbox-template"
-											required> <label for="license">Aceite
+									<div class="form-group terms-conditions">
+										<input id="license" name="termos" type="checkbox" class="checkbox-template"
+											required="termos"> <label for="license">Aceite
 											os Termos de Segurança e Privacidade</label>
 									</div>
 									<div class="form-group"></div>

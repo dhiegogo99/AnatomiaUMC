@@ -54,25 +54,17 @@
 								<div th:if="${senhaerror}">
 									<div class="alert alert-danger">As senhas não coincidem</div>
 								</div>
-
-
-								<form name="Aluno" id="login-form" method="post"
-									enctype="multipart/form-data" th:action="@{cadastroAluno}">
-
+								
+								
+								<form name="Aluno" id="login-form" method="post"  enctype="multipart/form-data" th:action="@{cadastroAluno}"> 
+									
+									
 									<div class="form-group">
-									<label for="login-username"
-											class="label-material">login</label>
-										<input id="login-username" type="text" name="login" 
-											class="input-material" th:value="${login}" readonly> 
+										<input id="login-username" type="text" name="nome"
+											required="" class="input-material"> <label
+											for="login-username" class="label-material">Nome
+											Completo</label>
 									</div>
-
-									<div class="form-group">
-										<input id="login-username" type="text" name="nome" required=""
-											class="input-material"> <label for="login-username"
-											class="label-material">Nome Completo</label>
-									</div>
-
-
 
 									<div class="form-group">
 										<input id="login-username" type="text" name="email"
@@ -80,21 +72,29 @@
 											for="login-username" class="label-materialcol-lg-2">E-mail</label>
 									</div>
 
-				
-
 									<div class="form-group">
-										<input id="login-password" type="password" name="senha"
-											required class="input-material"> <label
-											for="login-password" class="label-material">Senha</label>
+										<input id="login-username" type="text" name="login"
+											required="" class="input-material"> <label
+											for="login-username" class="label-materialcol-lg-2">INDENTIFICADOR</label>
+											<br/>
+											<h3>Tooltip </h3>
+                                  <button type="button" style="background-color: #4CAF50; border-radius: 50px;color: white;padding: 1px 8px;
+                                  text-align: center;text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; " 
+                                  class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="ALUNO - REFERENTE AO SEU RGM / PROFESSOR - REFERNTE A SUA CHAPA"> ? </button>
 									</div>
 
 									<div class="form-group">
 										<input id="login-password" type="password"
-											name="confirmasenha" required class="input-material">
-										<label for="login-password" class="label-material">Confirme
-											sua senha</label>
+											name="senha" required class="input-material">
+										<label for="login-password" class="label-material">Senha</label>
 									</div>
-
+									
+										<div class="form-group">
+										<input id="login-password" type="password"
+											name="confirmasenha" required class="input-material">
+										<label for="login-password" class="label-material">Confirme sua senha</label>
+									</div>
+									
 									<input type="submit" class="btn btn-primary" value="Cadastrar">
 									<!-- This should be submit button but I replaced it with <a> for demo purposes-->
 								</form>
@@ -107,7 +107,7 @@
 		<div class="copyrights text-center">
 			<p>
 				Desenvolvido por <a href="http://www.umc.br/bem_vindo/"
-					class="external">UMC</a>
+					class="external">Alunos UMC</a>
 			</p>
 
 		</div>
