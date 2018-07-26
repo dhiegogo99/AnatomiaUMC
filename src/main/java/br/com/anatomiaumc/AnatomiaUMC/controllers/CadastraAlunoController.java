@@ -61,8 +61,8 @@ public class CadastraAlunoController {
 		if (Aluno != null) {
 			if(senha.equals(confirmasenha)){
 				ur.save(Aluno);
-				
-				url = "redirect:login";
+				model.addAttribute("cadastrosucces",true);
+				url = "Views/all/login";
 			}else{
 				model.addAttribute("login", session.getAttribute("login"));
 				model.addAttribute("senhaerror",true);

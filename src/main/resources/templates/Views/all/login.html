@@ -64,6 +64,11 @@
 									<div class="alert alert-success">Senha alterada com sucesso!</div>
 								</div>
 								
+								<div th:if="${cadastrosucces}">
+									<div class="alert alert-success">Cadastro Realizado com Sucesso!</div>
+								</div>
+								
+								
 								
 								<div th:if="${emailnaoexiste}">
 									<div class="alert alert-danger">Não exixte nenhuma conta cadastrada neste e-mail!<br>Verifique se digitou o e-mail correto e tenha certeza que você já se cadastrou.</div>
