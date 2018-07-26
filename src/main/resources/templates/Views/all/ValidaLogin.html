@@ -52,7 +52,7 @@
 						<div class="form d-flex align-items-center">
 							<div class="content">
 								<form id="login-form" method="post"
-									enctype="multipart/form-data" th:action="@{VerificaRGM}">
+									enctype="multipart/form-data" th:action="@{ValidaLogin}">
 									<div th:if="${error}">
 										<div class="alert alert-danger">RGM não encontrado</div>
 									</div>
@@ -62,7 +62,7 @@
 									</div>
 
 									<div class="form-group">
-										<input id="login" type="text" name="login" required=login"
+										<input id="login" type="text" name="login" 
 											class="input-material"> <label for="login-username"
 											class="label-material">INDENTIFICADOR</label>
 											 <button type="button" style="background-color: #796AEE; border-radius: 50px;color: white;padding: 1px 8px;
@@ -78,8 +78,9 @@
 									<input type="submit" class="btn btn-primary" value="Cadastrar">
 									<br />
 									
-									<br />
 									
+									<small >Já é cadastrado? Clique Aqui </small><a
+									th:href="@{login}" class="signup">Login</a>
 									<!-- This should be submit button but I replaced it with <a> for demo purposes-->
 								</form>
 							</div>

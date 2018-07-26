@@ -21,9 +21,9 @@ public class ValidaRGMController {
 	@Autowired
 	UsuarioRepository rr;
 
-	@GetMapping("/VerificaLogin")
+	@GetMapping("/ValidaLogin")
 	public String VerificaRGM() {
-		return "Views/all/ValidaRGM";
+		return "Views/all/ValidaLogin";
 	}
 
 //	@GetMapping("/goToViewPage")
@@ -32,7 +32,7 @@ public class ValidaRGMController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value="/VerificaLogin")
+	@RequestMapping(value="/ValidaLogin")
 	public String ValidaRGM(@RequestParam("login") String login, Model model, HttpSession session) throws IOException {
 		String url = "";
 		UsuarioModel Resp = rr.findByLogin(login);
@@ -43,10 +43,10 @@ public class ValidaRGMController {
 			url=  "redirect:/cadastroAluno";
 		} else if (Resp == null){
 			model.addAttribute("error",true);
-			url= "Views/all/ValidaRGM";
+			url= "Views/all/ValidaLogin";
 		}else if(Resp.getStatus()){
 			model.addAttribute("existe",true);
-			url= "Views/all/ValidaRGM";
+			url= "Views/all/ValidaLogin";
 		}
 		return url;
 	}

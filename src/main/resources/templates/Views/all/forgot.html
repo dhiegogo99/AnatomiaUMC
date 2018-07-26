@@ -1,16 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Plataforma de Estudo UMC</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<!-- Bootstrap CSS-->
+<link rel="stylesheet"
+	href="resources/vendor/bootstrap/css/bootstrap.min.css">
+<!-- Fontastic Custom icon font-->
+<link rel="stylesheet" href="resources/css/fontastic.css">
+<!-- Font Awesome CSS-->
+<link rel="stylesheet"
+	href="resources/vendor/font-awesome/css/font-awesome.min.css">
+<!-- Google fonts - Poppins -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+<!-- theme stylesheet-->
+<link rel="stylesheet" href="resources/css/style.default.css"
+	id="theme-stylesheet">
+<!-- Custom stylesheet - for your changes-->
+<link rel="stylesheet" href="resources/css/custom.css">
+<!-- Favicon-->
+<link rel="shortcut icon" href="resources/img/favicon.ico">
+<!-- Tweaks for older IEs-->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <body>
-<form name="Aluno" id="login-form" method="post"
-									enctype="multipart/form-data" th:action="@{/forgot}">
-									<input type="text" name="email">
-									<input type="submit" value="vai">
-									
-									</form>
+	<div class="page login-page">
+		<div class="container d-flex align-items-center">
+			<div class="form-holder has-shadow">
+				<div class="row">
+					<!-- Logo & Information Panel-->
+					<div class="col-lg-6">
+						<div class="info d-flex align-items-center">
+							<div class="content">
+								<div class="logo">
+									<h1>Plataforma de Estudo UMC</h1>
+								</div>
+								<p>Aprenda de uma forma mais prática de onde você estiver!</p>
+							</div>
+						</div>
+					</div>
+					<!-- Form Panel    -->
+					<div class="col-lg-6 bg-white">
+						<div class="form d-flex align-items-center">
+							<div class="content">
+								<div th:if="${forgot}">
+									<div class="alert alert-success">
+										Um link foi enviado para seu email! <br> Verifique sua
+										caixa de entrada
+									</div>
+								</div>
 
+
+								<div th:if="${emailnaoexiste}">
+									<div class="alert alert-danger">
+										Não exixte nenhuma conta cadastrada neste e-mail!<br>Verifique
+										se digitou o e-mail correto e tenha certeza que você já se
+										cadastrou.
+									</div>
+								</div>
+
+
+
+
+								<form id="login-form" role="form" th:action="@{/forgot}"
+									method="POST">
+									
+									<div class="form-group">
+										 <input id="login-username" type="text"
+											name="email" required="" class="input-material">
+											<label for="email" class="label-material">Digite
+											seu email:</label>
+									</div>
+
+									<input type="submit" id="login" class="btn btn-primary"
+										value="Enviar">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyrights text-center">
+			<p>
+				Desenvolvido por <a href="http://www.umc.br/bem_vindo/"
+					class="external">Alunos UMC</a>
+			</p>
+
+		</div>
+	</div>
+	<!-- Javascript files-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="resources/vendor/popper.js/umd/popper.min.js">
+		
+	</script>
+	<script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="resources/vendor/jquery.cookie/jquery.cookie.js">
+		
+	</script>
+	<script src="resources/vendor/jquery-validation/jquery.validate.min.js"></script>
+	<script src="resources/js/front.js"></script>
 </body>
 </html>
