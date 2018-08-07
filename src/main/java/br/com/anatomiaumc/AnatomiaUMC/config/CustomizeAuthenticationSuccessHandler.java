@@ -16,18 +16,18 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
-import br.com.anatomiaumc.AnatomiaUMC.models.UsuarioModel;
-import br.com.anatomiaumc.AnatomiaUMC.repositories.UsuarioRepository;
+import br.com.anatomiaumc.AnatomiaUMC.models.User;
+import br.com.anatomiaumc.AnatomiaUMC.repositories.UserRepository;
  
 @Component
 public class CustomizeAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
  
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
-	UsuarioRepository ur;
+	UserRepository ur;
 	
 	
-	UsuarioModel user;
+	User user;
 	
 	@Autowired
 	HttpSession session;
@@ -63,8 +63,9 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
         }
         
         user = ur.findByLogin(authentication.getName());
+        session.setMaxInactiveInterval(15);
         
-        session.setAttribute("logado", user);
+        session.setAttribute("logged", user);
 
         
         
@@ -74,9 +75,9 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
         if(admin){
         	response.sendRedirect("/indexAdm");
         }else if (aluno){
-        	response.sendRedirect("/indexAluno");
+        	response.sendRedirect("/indexStudent");
         }else if(prof){
-        	response.sendRedirect("/indexProfessor");
+        	response.sendRedirect("/indexTeacher");
 
         }
 	}

@@ -49,30 +49,8 @@
 					<!-- Form Panel    -->
 					<div class="col-lg-6 bg-white">
 						<div class="form d-flex align-items-center">
-							<div class="content">
-								<div th:if="${forgot}">
-									<div class="alert alert-success">
-										Um link foi enviado para seu email! <br> Verifique sua
-										caixa de entrada
-									</div>
-								</div>
-								<div th:if="${emailNotFound}">
-									<div class="alert alert-danger">
-										Não exixte nenhuma conta cadastrada neste e-mail!<br>Verifique
-										se digitou o e-mail correto e tenha certeza que você já se
-										cadastrou.
-									</div>
-								</div>
-								<form id="login-form" role="form" th:action="@{/forgot}"
-									method="POST">
-									<div class="form-group">
-										<label for="email" class="label-material" style="color: gray">Digite
-											seu email:</label> <input id="login-username" type="text"
-											name="email" required="" class="input-material">
-									</div>
-									<input type="submit" id="login" class="btn btn-primary"
-										value="Enviar">
-								</form>
+							<h1>Você não tem permição para acessar esta pagina!!!</h1>
+								
 							</div>
 						</div>
 					</div>
@@ -82,7 +60,7 @@
 		<div class="copyrights text-center">
 			<p>
 				Desenvolvido por <a href="http://www.umc.br/bem_vindo/"
-					class="external">Alunos UMC</a>
+					class="external">UMC</a>
 			</p>
 
 		</div>

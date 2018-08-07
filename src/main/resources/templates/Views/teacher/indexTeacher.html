@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -40,7 +40,7 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a th:href="@{indexAdm}" class="navbar-brand">
+                <!-- Navbar Brand --><a th:href="@{indexAluno}" class="navbar-brand">
                   <div class="brand-text brand-big"><span>Plataforma de Ensino UMC</span><strong></strong></div>
                   <div class="brand-text brand-small"><strong>BD</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -76,7 +76,26 @@
                   </ul>
                 </li>
                 <!-- Messages                        -->
-                
+                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange">10</span></a>
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                        <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Jason Doe</h3><span>Sent You Message</span>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                        <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Frank Williams</h3><span>Sent You Message</span>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                        <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Ashley Wood</h3><span>Sent You Message</span>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>Read all messages    </strong></a></li>
+                  </ul>
+                </li>
                 <!-- Logout    -->
                 <form id="logoutForm" method="POST" th:action="@{/logout}"></form>
                 <li class="nav-item"><a href="#" onclick="document.forms['logoutForm'].submit()" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
@@ -98,32 +117,24 @@
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Barra de Ferramentas</span>
           <ul class="list-unstyled">
-            <li>   <a href="#mnuProf"  class="active" aria-expanded="false" data-toggle="collapse"><i class="fa fa-mortar-board"></i>Professores</a>
-            <ul id="mnuProf" class="collapse list-unstyled">
-                <li><a href="#">Adicionar Professor</a></li>
-                <li><a href="#">Excluir Professor</a></li>
-                <li><a href="#">Editar Professor</a></li>
-                <li><a href="#">Listar Professor</a></li>
-              </ul>
-            
-            </li>
-            
-            
-            
-            <li><a href="#mnuAluno" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-mortar-board"></i>Alunos</a>
-              <ul id="mnuAluno" class="collapse list-unstyled">
-                <li><a th:href="@{RegisterRGM}"> <i class="fa fa-user-plus" ></i>Adicionar Aluno</a></li>
-                <li><a href="#"><i class="fa fa-user-times"></i>Excluir Aluno</a></li>
-                <li><a href="#"><i class="fa fa-mortar-board"></i>Edit'ar Aluno</a></li>
-                <li><a href="#"><i class="fa fa-mortar-board"></i>Listar Aluno</a></li>
+            <li class="active"> <a href="index.html"><i class="icon-home"></i>Menu</a></li>
+            <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Inserir Conteúdo</a>
+              <ul id="dashvariants" class="collapse list-unstyled">
+                <li><a href="#">Adicionar Novo</a></li>
+                <li><a href="#">Todos</a></li>
               </ul>
             </li>
             <li> <a href="tables.html"> <i class="icon-grid"></i>Inserir Conteúdo</a></li>
             <li> <a href="charts.html"> <i class="fa fa-bar-chart"></i>Aprovar Conteúdo</a></li>
             <li> <a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
             <li> <a href="login.html"> <i class="icon-interface-windows"></i>Login Page</a></li>
-          
- 
+          </ul><span class="heading">Extras</span>
+          <ul class="list-unstyled">
+            <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
+            <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
+            <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
+            <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
+          </ul>
         </nav>
         <div class="content-inner">
           <!-- Page Header-->
@@ -187,6 +198,16 @@
               </div>
             </div>
           </section>
+          
+		  
+		  
+		 
+
+
+
+
+
+
 		 <!-- Dashboard Header Section    -->
           <section class="dashboard-header">
             <div class="container-fluid">
@@ -373,7 +394,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- Total Overdue-->
+                <!-- Total Overdue             -->
                 <div class="col-lg-4">
                   <div class="overdue card">
                     <div class="card-close">

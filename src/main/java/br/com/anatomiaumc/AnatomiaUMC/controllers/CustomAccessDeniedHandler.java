@@ -1,7 +1,6 @@
 package br.com.anatomiaumc.AnatomiaUMC.controllers;
 
 import java.io.IOException;
-import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -25,23 +24,23 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
         Authentication auth 
           = SecurityContextHolder.getContext().getAuthentication();
        
-        if(request.getRequestURI().equals(request.getContextPath() + "/VerificaRGM")&& auth!= null){
-        	response.sendRedirect(request.getContextPath() + "/errologado");
+        if(request.getRequestURI().equals(request.getContextPath() + "/LoginValidate")&& auth!= null){
+        	response.sendRedirect(request.getContextPath() + "/notLogged");
         }  
   
         else
         	
-        	if(request.getRequestURI().equals(request.getContextPath() + "/cadastroAluno")&& auth!= null){
-            	response.sendRedirect(request.getContextPath() + "/errologado");
+        	if(request.getRequestURI().equals(request.getContextPath() + "/RegisterStudent")&& auth!= null){
+            	response.sendRedirect(request.getContextPath() + "/notLogged");
             }  
       
             else
         	
-        	if (request.getRequestURI().equals(request.getContextPath() + "/VerificaRGM")&& auth == null){
+        	if (request.getRequestURI().equals(request.getContextPath() + "/LoginValidate")&& auth == null){
         
-        response.sendRedirect(request.getContextPath() + "/VerificaRGM");
+        response.sendRedirect(request.getContextPath() + "/LoginValidate");
     }else{
-    	response.sendRedirect(request.getContextPath() + "/erros");
+    	response.sendRedirect(request.getContextPath() + "/errors");
     }
         
         }
