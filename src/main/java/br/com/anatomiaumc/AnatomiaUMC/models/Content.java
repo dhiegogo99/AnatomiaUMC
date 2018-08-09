@@ -22,14 +22,11 @@ public class Content  {
 	@Column(name = "Id")
 	private Long Id;
 
-	@OneToOne
-	@JoinColumn(name = "IDTopic")
-	private Topic Topic;
-	
+
 	@OneToOne
 	@JoinColumn(name = "IdUser")
 	private User User;
-	
-	@Column(name = "Content")
-	private String Content;
+	@OneToOne
+	@JoinColumn
+	private Subject subject;
 }

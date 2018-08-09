@@ -1,35 +1,32 @@
 package br.com.anatomiaumc.AnatomiaUMC.models;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
 
-
 @Entity
-@Table(name = "Conteudo")
+@Table(name = "Subject")
 @Data
-public class ConteudoModel  {
+public class Subject{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "IDConteudo")
-	private Long idConteudo;
+	@Column(name = "Id")
+	private Long Id;
 
-	@OneToOne
-	@JoinColumn(name = "IDTopico")
-	private TopicoConteudoModel Topico;
+	@Column(name = "Title")
+	private String Title;
 	
 	@OneToOne
-	@JoinColumn(name = "IDUsuario")
-	private UsuarioModel Usuario;
-	
-	@Column(name = "Conteudo")
-	private String conteudo;
+	@JoinColumn
+	private Topic topic;
+
+
 }

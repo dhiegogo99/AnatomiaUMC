@@ -1,9 +1,12 @@
 package br.com.anatomiaumc.AnatomiaUMC.models;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -21,6 +24,8 @@ public class Topic{
 	@Column(name = "Title")
 	private String Title;
 
+	@OneToMany(mappedBy="topic")
+	List<Subject> subject;
 
 
 }
