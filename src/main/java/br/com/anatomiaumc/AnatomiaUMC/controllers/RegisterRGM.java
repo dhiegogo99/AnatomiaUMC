@@ -78,6 +78,7 @@ public class RegisterRGM {
 		} catch (Exception e) {
 			model.addAttribute("message",
 					"Fail! -> uploaded filename: " + file.getOriginalFilename());
+			System.out.println("ERRO:  "+ e.getMessage());
 		}
 		return "Views/admin/RegisterRGM";
 	}

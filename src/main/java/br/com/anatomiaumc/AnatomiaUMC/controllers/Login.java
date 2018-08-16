@@ -15,4 +15,8 @@ public class Login {
 	public String login() {
 		return "Views/all/login";
 	}
+	@GetMapping("/Login")
+	public String Login() {
+		return "Views/all/login";
+	}
 }

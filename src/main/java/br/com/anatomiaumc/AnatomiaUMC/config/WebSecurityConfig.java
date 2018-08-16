@@ -33,57 +33,32 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				.antMatchers("/all/**")
 				.permitAll()
-				.antMatchers("/VerificaRGM")
+				.antMatchers("/LoginValidate")
 				.not()
 				.authenticated()
 				.antMatchers("/login")
 				.not()
 				.authenticated()
-				.antMatchers("/cadastroAluno")
+				.antMatchers("/RegisterStudent")
 				.not()
 				.authenticated()
 				// aluno
-				.antMatchers("/indexAluno")
+				.antMatchers("/indexStudent")
 				.hasAuthority("ALUNO")
 				// professor
-				.antMatchers("/indexProfessor")
+				.antMatchers("/indexTeacher")
 				.hasAuthority("PROFESSOR")
 				// adm
 				.antMatchers("/indexAdm").hasAuthority("ADM")
-				.antMatchers("/insereRGM").hasAuthority("ADM")
-				.antMatchers("/insereChapa").hasAuthority("ADM").and()
+				.antMatchers("/RegisterRGM").hasAuthority("ADM")
+				.antMatchers("/RegisterChapa").hasAuthority("ADM").and()
 				.formLogin()
 				.successHandler(customizeAuthenticationSuccessHandler)
 				.loginPage("/login").permitAll().and().logout().permitAll();
 		http.exceptionHandling().accessDeniedHandler(accessDeniedHandler());
 	}
 
-	// @Override
-	// protected void configure(HttpSecurity http) throws Exception {
-	// http.authorizeRequests()
-	//
-	// .anyRequest().authenticated()
-	//
-	// .antMatchers("/resources/**").permitAll()
-	// .antMatchers("/VerificaRGM").permitAll()
-	// .antMatchers("/indexAluno").access("hasRole('ALUNO')")
-	// .antMatchers("/indexAdm").access("hasRole('ADM')")
-	// .antMatchers("/indexProfessor").access("hasRole('PROFESSOR')")
-	// .antMatchers("/insereRGM").access("hasRole('ADM')")
-	//
-	// .and()
-	//
-	// .formLogin()
-	// .successHandler(customizeAuthenticationSuccessHandler)
-	// .loginPage("/login").permitAll()
-	// .and()
-	//
-	// .logout()
-	// .permitAll();
-	//
-	// http.exceptionHandling().accessDeniedPage("/403");
-	// }
-
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)
 			throws Exception {
