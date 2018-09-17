@@ -14,14 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.anatomiaumc.AnatomiaUMC.models.User;
-import br.com.anatomiaumc.AnatomiaUMC.repositories.RolesRepository;
 import br.com.anatomiaumc.AnatomiaUMC.repositories.UserRepository;
 
 @Controller
-public class RegisterStudent {
-
-	@Autowired
-	RolesRepository rolesrepo;
+public class UserRegister {
 
 	@Autowired
 	BCryptPasswordEncoder cryp;
@@ -71,6 +67,28 @@ public class RegisterStudent {
 			model.addAttribute("login", session.getAttribute("login"));
 			model.addAttribute("EmailAlreadyExists", true);
 			url = "Views/all/Register";
+		}
+		return url;
+	}
+	
+	@GetMapping("/LoginValidate")
+	public String LoginValidate() {
+		return "Views/all/LoginValidate";
+	}
+	@RequestMapping(value="/LoginValidate")
+	public String LoginValidate(@RequestParam("login") String login, Model model, HttpSession session) throws IOException {
+		String url = "";
+		User user = ur.findByLogin(login);
+		if (((user)!= null) && !user.getStatus()) {
+			model.addAttribute("id",login);
+			session.setAttribute("login", user.getLogin());
+			url=  "redirect:/RegisterStudent";
+		} else if (user == null){
+			model.addAttribute("error",true);
+			url= "Views/all/LoginValidate";
+		}else if(user.getStatus()){
+			model.addAttribute("exist",true);
+			url= "Views/all/LoginValidate";
 		}
 		return url;
 	}

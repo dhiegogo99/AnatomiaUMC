@@ -22,7 +22,7 @@ public class Topic{
 	private Long Id;
 
 	@Column(name = "Title")
-	private String Title;
+	private String Name;
 
 	@OneToMany(mappedBy="topic")
 	List<Subject> subject;
