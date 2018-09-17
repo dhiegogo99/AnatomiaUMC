@@ -20,9 +20,81 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = "UserUMC")
-@Data
+
 @EqualsAndHashCode(exclude = "roles")
 public class User {
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+
+	public Boolean getStatus() {
+		return Status;
+	}
+
+	public void setStatus(Boolean status) {
+		Status = status;
+	}
+
+	public String getResetToken() {
+		return resetToken;
+	}
+
+	public void setResetToken(String resetToken) {
+		this.resetToken = resetToken;
+	}
+
+	public Course getUserCourse() {
+		return UserCourse;
+	}
+
+	public void setUserCourse(Course userCourse) {
+		UserCourse = userCourse;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
