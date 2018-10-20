@@ -15,3 +15,15 @@ insert into users_roles(user_id,role_id) values((select id from UserUMC where lo
 insert into users_roles(user_id,role_id) values((select id from UserUMC where login = '456'),(select id from role where name = 'PROFESSOR'));
 insert into users_roles(user_id,role_id) values((select id from UserUMC where login  = '789'),(select id from role where name = 'ADM'));
 
+insert into TopicContent (Title,parent) values ('1',null)
+insert into TopicContent (Title,parent) values ('2',null)
+insert into TopicContent (Title,parent) values ('3',null)
+insert into TopicContent (Title,parent) values ('4',null)
+
+
+insert into TopicContent (Title,parent) values ('5',1)
+insert into TopicContent (Title,parent) values ('6',2)
+insert into TopicContent (Title,parent) values ('7',1)
+insert into TopicContent (Title,parent) values ('8',3)
+insert into TopicContent (Title,parent) values ('9',4)
+insert into TopicContent (Title,parent) values ('10',1)
