@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -24,8 +25,9 @@ public class Topic{
 	@Column(name = "Title")
 	private String Name;
 
-	@OneToMany(mappedBy="topic")
-	List<Subject> subject;
+	@OneToOne
+	Topic parent;
 
-
+	@OneToMany(mappedBy="parent")
+	List<Topic> children;
 }
