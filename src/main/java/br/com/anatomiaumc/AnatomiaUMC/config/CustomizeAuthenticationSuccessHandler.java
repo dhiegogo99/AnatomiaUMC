@@ -63,7 +63,10 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
         }
         
         user = ur.findByLogin(authentication.getName());
-        session.setMaxInactiveInterval(15);
+        if(!authentication.getAuthorities().contains("ADM")) {
+        	
+        	session.setMaxInactiveInterval(900);
+        }
         
         session.setAttribute("logged", user);
 

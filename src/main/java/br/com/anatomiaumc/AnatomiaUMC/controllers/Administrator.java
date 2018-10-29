@@ -138,6 +138,7 @@ public class Administrator {
 						user.setLogin(formatter.formatCellValue(cell)
 								.toString());
 						userRepo.save(user);
+						model.addAttribute("ImportSucces",true);
 					}
 				}
 			}

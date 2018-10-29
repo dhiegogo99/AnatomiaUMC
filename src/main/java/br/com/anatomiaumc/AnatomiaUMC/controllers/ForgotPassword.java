@@ -72,7 +72,7 @@ public class ForgotPassword {
 			passwordResetEmail.setTo(user.getEmail());
 			passwordResetEmail.setSubject("Nova Senha");
 			passwordResetEmail.setText("Ola " + user.getName()
-					+ "./nClique aki para gerar sua nova senha caralhuda\n"
+					+ ".\nClique aki para gerar sua nova senha\n"
 					+ appUrl + ":9006/reset?token=" + user.getResetToken());
 
 			emailService.sendEmail(passwordResetEmail);

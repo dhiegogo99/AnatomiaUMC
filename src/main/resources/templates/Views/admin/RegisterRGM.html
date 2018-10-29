@@ -2,104 +2,119 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Plataforma de Estudo UMC</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="resouces/vendor/bootstrap/css/bootstrap.min.css">
-    <!-- Fontastic Custom icon font-->
-    <link rel="stylesheet" href="resouces/css/fontastic.css">
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="resouces/vendor/font-awesome/css/font-awesome.min.css">
-    <!-- Google fonts - Poppins -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
-    <!-- theme stylesheet-->
-    <link rel="stylesheet" href="resouces/css/style.default.css" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="resouces/css/custom.css">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="favicon.png">
-    <!-- Tweaks for older IEs-->
-    <!--[if lt IE 9]>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Plataforma de Estudo UMC</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<!-- Bootstrap CSS-->
+<link rel="stylesheet"
+	href="resources/vendor/bootstrap/css/bootstrap.min.css">
+<!-- Fontastic Custom icon font-->
+<link rel="stylesheet" href="resources/css/fontastic.css">
+<!-- Font Awesome CSS-->
+<link rel="stylesheet"
+	href="resources/vendor/font-awesome/css/font-awesome.min.css">
+<!-- Google fonts - Poppins -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+<!-- theme stylesheet-->
+<link rel="stylesheet" href="resources/css/style.default.css"
+	id="theme-stylesheet">
+<!-- Custom stylesheet - for your changes-->
+<link rel="stylesheet" href="resources/css/custom.css">
+<!-- Favicon-->
+<link rel="shortcut icon" href="favicon.png">
+<!-- Tweaks for older IEs-->
+<!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 
 <body>
 
-    <div class="page login-page">
-        <div class="container d-flex align-items-center">
-            <div class="form-holder has-shadow">
-                <div class="row">
-                    <!-- Logo & Information Panel-->
-                    <div class="col-lg-6">
-                        <div class="info d-flex align-items-center">
-                            <div class="content">
-                                <div class="logo">
-                                    <h1>Insira o arquivo com os indentificadores </h1>
-                                </div>
-                                <p>que você quer habilitar!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Form Panel    -->
-                    <div class="col-lg-6 bg-white">
-                        <div class="form d-flex align-items-center">
-                            <div class="content">
-                              
-                                    <p style="font-size: 20px; color:#796AEE "> Apenas serão aceitos aquivos do tipo Exel, Importe a lista de usurios que quer adicionar a plataforma. </p>
-                                    <div class="form-group">
-                                        <div style="padding-top: -25">
-                                            <div class="row">
-                                                <div class="col-md-6">
+	<div class="page login-page">
+		<div class="container d-flex align-items-center">
+			<div class="form-holder has-shadow">
+				<div class="row">
+					<!-- Logo & Information Panel-->
+					<div class="col-lg-6">
+						<div class="info d-flex align-items-center">
+							<div class="content">
+								<div class="logo">
+									<h1>Insira o arquivo com os indentificadores</h1>
+								</div>
+								<p>que você quer habilitar!</p>
+							</div>
+						</div>
+					</div>
+					<!-- Form Panel    -->
+					<div class="col-lg-6 bg-white">
+						<div class="form d-flex align-items-center">
+							<div class="content">
+							<div th:if="${ImportSucces}">
+									<div class="alert alert-success">Todos os Registros foram inseridos com sucesso</div>
+								</div>
+								<form id="login-form" method="post" enctype="multipart/form-data">
+									<p style="font-size: 20px; color: #796AEE">Apenas serão
+										aceitos aquivos do tipo Excel, Importe a lista de usurios que
+										quer adicionar a plataforma.</p>
+									<div class="form-group">
+										<div style="padding-top: -25">
+											<div class="row">
+												<div class="col-md-6">
 
-                                                    <form method="POST" enctype="multipart/form-data" th:action="@{RegisterRGM}">
-                                                        <label class="labelClass" style="font: #fff" for='selecao-arquivo'>Selecionar Registros &#187;</label>
+													<form method="POST" enctype="multipart/form-data"
+														th:action="@{registerRGM}">
+														<label class="labelClass" style="font: #fff"
+															for='file'>Selecionar Registros &#187;</label>
 
-                                                        <input class="labelClass" id="selecao-arquivo" style="background-color: #796AEE; /* Green */
-    border-radius: 80px; color: white; margin-right: 40px; padding: 30px; font-size: 16px; margin: 4px 2px;
-    cursor: pointer;" name="file" type="file">
-                                                        </input>
-                                                </div>
-                                                <div class="col-md-4">
+														<input class="labelClass" id='file'
+															style="background-color: #796AEE; /* Green */ border-radius: 80px; color: white; margin-right: 40px; padding: 30px; font-size: 16px; margin: 4px 2px; cursor: pointer;"
+															name="file" type="file"> </input>
+																<input
+														style=" right: 20px; position: absolute;  margin-right: 40px;"
+														type="submit" class="btn btn-primary" value="Importar">
+												</div>
+												<div class="col-md-4">
 
+													
 
-                                                    <input style="  left: -40px; right: 20px; position: absolute;" type="submit" class="btn btn-primary" value="Importar">
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+												
+								</form>
+							</div>
+						</div>
+					</div>
 
-                                    </div>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <small>Retornar ao </small><a href="register.html" class="signup">Home</a>
-                            </div>
+				</div>
+				<br /> <br /> <br /> <small>Retornar ao </small><a
+					th:href="@{indexAdm}" class="signup">Home</a>
+			</div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyrights text-center">
-            <p>Desenvolvido por <a href="http://www.umc.br/bem_vindo/" class="external">UMC</a></p>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	<div class="copyrights text-center">
+		<p>
+			Desenvolvido por <a href="http://www.umc.br/bem_vindo/"
+				class="external">UMC</a>
+		</p>
 
-        </div>
-    </div>
+	</div>
+	</div>
 
-    <!-- Javascript files-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="resouces/vendor/popper.js/umd/popper.min.js">
+	<!-- Javascript files-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="resources/vendor/popper.js/umd/popper.min.js">
     </script>
-    <script src="resouces/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="resouces/vendor/jquery.cookie/jquery.cookie.js">
+	<script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="resources/vendor/jquery.cookie/jquery.cookie.js">
     </script>
-    <script src="resouces/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="resouces/js/front.js"></script>
+	<script src="resources/vendor/jquery-validation/jquery.validate.min.js"></script>
+	<script src="resources/js/front.js"></script>
 </body>
 
 </html>
