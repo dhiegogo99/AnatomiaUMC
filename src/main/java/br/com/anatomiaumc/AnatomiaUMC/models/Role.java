@@ -17,10 +17,16 @@ import lombok.Data;
 @Data
 public class Role {
 
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-    public Long getId() {
+    private String name;
+  
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users = new HashSet<>();
+	public Long getId() {
 		return id;
 	}
 
@@ -36,17 +42,12 @@ public class Role {
 		this.name = name;
 	}
 
-	public Set<UsuarioModel> getUsers() {
+	public Set<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(Set<UsuarioModel> users) {
+	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
-
-	private String name;
-  
-    @ManyToMany(mappedBy = "roles")
-    private Set<UsuarioModel> users = new HashSet<>();
 	
 }

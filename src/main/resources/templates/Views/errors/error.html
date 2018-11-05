@@ -42,57 +42,15 @@
 								<div class="logo">
 									<h1>Plataforma de Estudo UMC</h1>
 								</div>
-								<p>Aprenda de uma forma mais prática e de onde você estiver!</p>
+								<p>Aprenda de uma forma mais prática de onde você estiver!</p>
 							</div>
 						</div>
 					</div>
 					<!-- Form Panel    -->
 					<div class="col-lg-6 bg-white">
 						<div class="form d-flex align-items-center">
-							<div class="content">
-
-								<div th:if="${param.error}">
-									<div class="alert alert-danger">Usuário ou senha
-										invalidos!</div>
-								</div>
+							<h1>Você não tem permição para acessar esta pagina!!!</h1>
 								
-								<div th:if="${forgot}">
-									<div class="alert alert-success">Um link foi enviado para seu email! <br> Verifique sua caixa de entrada</div>
-								</div>
-								
-								<div th:if="${successReset}">
-									<div class="alert alert-success">Senha alterada com sucesso!</div>
-								</div>
-								
-								<div th:if="${registrationSucces}">
-									<div class="alert alert-success">Cadastro Realizado com Sucesso!</div>
-								</div>
-						
-								<div th:if="${param.logout}">
-									<div class="alert alert-success">Logout realizado com
-										sucesso</div>
-								</div>
-
-								<form id="login-form" role="form" th:action="login"
-									method="POST">
-									<div class="form-group">
-									<label
-											for="login-username" class="label-material" style="color:gray;">INDENTIFICADOR</label>
-										<input id="login-username" type="text" name="username"
-											required="" class="input-material" > 
-									</div>
-									<div class="form-group">
-											<label for="login-password" class="label-material" style="color:gray;">Senha</label>
-										<input id="login-password" type="password" name="password"
-											required="" class="input-material"> 
-									</div>
-									<input type="submit" id="login" class="btn btn-primary"
-										value="Entrar">
-								</form>
-								<a th:href="@{forgot}" class="forgot-pass">Esqueceu sua senha?</a>
-								<br>
-								<small >Para primeiro acesso clique aqui! </small><a
-									th:href="@{LoginValidate}" class="signup">Cadastrar</a>
 							</div>
 						</div>
 					</div>
@@ -102,7 +60,7 @@
 		<div class="copyrights text-center">
 			<p>
 				Desenvolvido por <a href="http://www.umc.br/bem_vindo/"
-					class="external">Alunos UMC</a>
+					class="external">UMC</a>
 			</p>
 
 		</div>

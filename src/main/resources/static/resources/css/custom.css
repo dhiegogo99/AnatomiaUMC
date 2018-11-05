@@ -1,1 +1,27 @@
 /* your styles go here */
+  /* Esconde o input */
+    
+
+
+    input[type='file'] {
+      display: none
+    }
+
+    
+     /* Aparência que terá o seletor de arquivo */
+ .labelClass {
+      height: 47px;
+      width: 207px;
+      text-align: center;
+      background-color: #796AEE;
+      border-radius: 10px;
+      font:#fff;
+      cursor: pointer;
+      margin: 10px;
+      padding: 6px 20px
+    }
+	
+    ::-webkit-input-placeholder {
+   color: #fff;
+   
+}

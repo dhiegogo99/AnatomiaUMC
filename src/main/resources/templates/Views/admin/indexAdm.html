@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -40,9 +40,9 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a href="index.html" class="navbar-brand">
-                  <div class="brand-text brand-big"><span>Plataforma de Ensino</span>UMC<strong></strong></div>
-                  <div class="brand-text brand-small"><strong>BD</strong></div></a>
+                <!-- Navbar Brand --><a th:href="@{indexAdm}" class="navbar-brand">
+                  <div class="brand-text brand-big"><span>Plataforma de Ensino Virtual</span><strong></strong></div>
+                  <div class="brand-text brand-small"><strong>PV</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
               </div>
               <!-- Navbar Menu -->
@@ -90,9 +90,9 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="resources/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="resources/img/admin-icone.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4" th:text="${user.getNome()}"></h1>
+              <h1 class="h4" th:text="${user.getName()}"></h1>
               <p>Admim</p>
             </div>
           </div>
@@ -100,10 +100,7 @@
           <ul class="list-unstyled">
             <li>   <a href="#mnuProf"  class="active" aria-expanded="false" data-toggle="collapse"><i class="fa fa-mortar-board"></i>Professores</a>
             <ul id="mnuProf" class="collapse list-unstyled">
-                <li><a th:href="@{insereChapa}">Adicionar Professor</a></li>
-                <li><a href="#">Excluir Professor</a></li>
-                <li><a href="#">Editar Professor</a></li>
-                <li><a href="#">Listar Professor</a></li>
+                <li><a th:href="@{RegisterChapa}"><i class="fa fa-user-plus" ></i>Adicionar Professor</a></li>
               </ul>
             
             </li>
@@ -112,16 +109,12 @@
             
             <li><a href="#mnuAluno" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-mortar-board"></i>Alunos</a>
               <ul id="mnuAluno" class="collapse list-unstyled">
-                <li><a th:href="@{insereRGM}"> <i class="fa fa-user-plus" ></i>Adicionar Aluno</a></li>
-                <li><a href="#"><i class="fa fa-user-times"></i>Excluir Aluno</a></li>
-                <li><a href="#"><i class="fa fa-mortar-board"></i>Edit'ar Aluno</a></li>
-                <li><a href="#"><i class="fa fa-mortar-board"></i>Listar Aluno</a></li>
+                <li><a th:href="@{RegisterRGM}"> <i class="fa fa-user-plus" ></i>Adicionar Aluno</a></li>
+                <li><a th:href="@{RegisterChapa}"> <i class="fa fa-user-plus" ></i>Adicionar Professor</a></li>
               </ul>
             </li>
-            <li> <a href="tables.html"> <i class="icon-grid"></i>Inserir Conteúdo</a></li>
-            <li> <a href="charts.html"> <i class="fa fa-bar-chart"></i>Aprovar Conteúdo</a></li>
-            <li> <a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
-            <li> <a href="login.html"> <i class="icon-interface-windows"></i>Login Page</a></li>
+            <li> <a href="#"> <i class="icon-grid"></i>Inserir Conteúdo</a></li>
+            <li> <a href="#"> <i class="fa fa-bar-chart"></i>Aprovar Conteúdo</a></li>
           
  
         </nav>

@@ -20,7 +20,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	CustomizeAuthenticationSuccessHandler customizeAuthenticationSuccessHandler;
 
-	
 	@Autowired
 	private UserDetailsService userDetailsService;
 
@@ -30,69 +29,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/resources/**").permitAll()
-				.antMatchers("/all/**").permitAll()
-				.antMatchers("/VerificaRGM").not().authenticated()
-				.antMatchers("/login").not().authenticated()
-				.antMatchers("/cadastroAluno").not().authenticated()
-				
-				
-				//aluno
-				.antMatchers("/indexAluno").hasAuthority("ALUNO")
-				
-				
-				
-				//professor
-				.antMatchers("/indexProfessor").hasAuthority("PROFESSOR")
-				
-				
-				
-				//adm
+				.antMatchers("/resources/**")
+				.permitAll()
+				.antMatchers("/all/**")
+				.permitAll()
+				.antMatchers("/LoginValidate")
+				.not()
+				.authenticated()
+				.antMatchers("/login")
+				.not()
+				.authenticated()
+				.antMatchers("/RegisterStudent")
+				.not()
+				.authenticated()
+				// aluno
+				.antMatchers("/indexStudent")
+				.hasAuthority("ALUNO")
+				// professor
+				.antMatchers("/indexTeacher")
+				.hasAuthority("PROFESSOR")
+				// adm
 				.antMatchers("/indexAdm").hasAuthority("ADM")
-				.antMatchers("/insereRGM").hasAuthority("ADM")
-				
-				
-				
-				.and()
-				
-			.formLogin()
-					.successHandler(customizeAuthenticationSuccessHandler)
-					.loginPage("/login").permitAll()
-				.and()
-				
-			.logout()
-				.permitAll();
-		
+				.antMatchers("/RegisterRGM").hasAuthority("ADM")
+				.antMatchers("/RegisterChapa").hasAuthority("ADM").and()
+				.formLogin()
+				.successHandler(customizeAuthenticationSuccessHandler)
+				.loginPage("/login").permitAll().and().logout().permitAll();
 		http.exceptionHandling().accessDeniedHandler(accessDeniedHandler());
 	}
-	
-	
-//	@Override
-//	protected void configure(HttpSecurity http) throws Exception {
-//		http.authorizeRequests()
-//		
-//				.anyRequest().authenticated()
-//		
-//				.antMatchers("/resources/**").permitAll()
-//				.antMatchers("/VerificaRGM").permitAll()
-//				.antMatchers("/indexAluno").access("hasRole('ALUNO')")
-//				.antMatchers("/indexAdm").access("hasRole('ADM')")
-//				.antMatchers("/indexProfessor").access("hasRole('PROFESSOR')")
-//				.antMatchers("/insereRGM").access("hasRole('ADM')")
-//				
-//				.and()
-//				
-//			.formLogin()
-//					.successHandler(customizeAuthenticationSuccessHandler)
-//					.loginPage("/login").permitAll()
-//				.and()
-//				
-//			.logout()
-//				.permitAll();
-//		
-//		http.exceptionHandling().accessDeniedPage("/403");
-//	}
 
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)
 			throws Exception {
@@ -105,10 +71,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
 	}
-	
+
 	@Bean
-	public AccessDeniedHandler accessDeniedHandler(){
-	    return new CustomAccessDeniedHandler();
+	public AccessDeniedHandler accessDeniedHandler() {
+		return new CustomAccessDeniedHandler();
 	}
 
 }
