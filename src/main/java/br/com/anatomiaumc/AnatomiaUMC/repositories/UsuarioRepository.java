@@ -29,4 +29,8 @@ public interface UsuarioRepository extends CrudRepository<UsuarioModel, Long> {
 //			+ " where U.email = :usuario.email")
 //	void UpdateAluno(@Param("usuario") UsuarioModel usuario);
 
+	
+	
+	
+	
 }
