@@ -41,8 +41,8 @@
 							<div class="content">
 								<div class="logo">
 									<h1>Alteração Cadastral</h1>
-                                    </div>
-                                <p>Preencha novamente os campos com as alterações desejadas!</p>
+								</div>
+								<p>Preencha novamente os campos com as alterações desejadas!</p>
 							</div>
 						</div>
 					</div>
@@ -51,55 +51,60 @@
 						<div class="form d-flex align-items-center">
 							<div class="content">
 
-								<div th:if="${passwordError}">
+								<div th:if="${AlterUserErrorPassword}">
 									<div class="alert alert-danger">As senhas não coincidem</div>
 								</div>
-								
-								<div th:if="${EmailAlreadyExists}">
-									<div class="alert alert-danger">Já existe uma conta cadastrada neste e-mail!</div>
+								<div th:if="${SucessaAlterUser}">
+									<div class="alert alert-success">Usuario alterado com
+										sucesso!</div>
 								</div>
-								
-								
-								<form name="Aluno" id="login-form" method="post"  enctype="multipart/form-data" th:action="@{RegisterStudent}"> 
-									
-										<div class="form-group"><label
-											for="login-username" class="label-materialcol-lg-2" style="color:gray;">INDENTIFICADOR</label>
-										<input id="login-username" type="text" name="login"
-											required="" class="input-material" th:value="${login}" readonly> 
-											
-											
+
+
+
+								<form name="Aluno" id="login-form" method="post"
+									enctype="multipart/form-data" th:action="@{ExecAlterUser}">
+
+									<div class="form-group">
+										<label for="login-username" class="label-materialcol-lg-2"
+											style="color: gray;">INDENTIFICADOR</label> <input
+											id="login-username" type="text" name="login" required=""
+											class="input-material" th:value="${id}" readonly>
+
+
 									</div>
 									<div class="form-group">
-									<label
-											for="login-username" class="label-material" style="color:gray;">Nome
-											Completo</label>
-										<input id="login-username" type="text" name="name"
-											required="" class="input-material">
+										<label for="login-username" class="label-material"
+											style="color: gray;">Nome Completo</label> <input
+											id="login-username" type="text" name="name" required=""
+											class="input-material">
 									</div>
 
 									<div class="form-group">
-											 <label for="login-username" class="label-materialcol-lg-2" style="color:gray;">E-mail</label>
-										<input id="login-username" type="text" name="email"
-											required="" class="input-material">
+										<label for="login-username" class="label-materialcol-lg-2"
+											style="color: gray;">E-mail</label> <input
+											id="login-username" type="text" name="email" required=""
+											class="input-material">
 									</div>
 
-								
+
 
 									<div class="form-group">
-									<label for="login-password" class="label-material" style="color:gray;">Senha</label>
-										<input id="login-password" type="password"
-											name="password" required class="input-material">
-										
+										<label for="login-password" class="label-material"
+											style="color: gray;">Senha</label> <input id="login-password"
+											type="password" name="password" required
+											class="input-material">
+
 									</div>
-									
-										<div class="form-group">
-										<label for="login-password" class="label-material" style="color:gray;">Confirme sua senha</label>
-										<input id="login-password" type="password"
-											name="confirmpassword" required class="input-material">
-										
+
+									<div class="form-group">
+										<label for="login-password" class="label-material"
+											style="color: gray;">Confirme sua senha</label> <input
+											id="login-password" type="password" name="confirmpassword"
+											required class="input-material">
+
 									</div>
-									
-									<input type="submit" class="btn btn-primary" value="Cadastrar">
+
+									<input type="submit" class="btn btn-primary" value="Alterar">
 									<!-- This should be submit button but I replaced it with <a> for demo purposes-->
 								</form>
 							</div>

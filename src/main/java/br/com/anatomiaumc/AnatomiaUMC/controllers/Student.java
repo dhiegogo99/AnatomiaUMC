@@ -17,13 +17,6 @@ public class Student {
 		return "Views/students/indexStudent";
 	}
 	
-	@GetMapping("/editUser")
-	public String editUserPage(HttpSession session, Model model){
-	
-		
-		model.addAttribute("user",session.getAttribute("logged"));
-	
-		return "Views/all/registryModification";
-	}
+
 	
 }
