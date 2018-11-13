@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Plataforma de Ensino Virtual</title>
+<title>Plataforma de Estudo UMC</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -24,7 +24,7 @@
 <!-- Custom stylesheet - for your changes-->
 <link rel="stylesheet" href="resources/css/custom.css">
 <!-- Favicon-->
-<link rel="shortcut icon" href="resources/img/favicon.ico">
+<link rel="shortcut icon" href="favicon.png">
 <!-- Tweaks for older IEs-->
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -40,10 +40,9 @@
 						<div class="info d-flex align-items-center">
 							<div class="content">
 								<div class="logo">
-									<h1>PEV</h1>
-									<h2>Plataforma de Ensino Vitural</h2>
+									<h1>Alteração Cadastral</h1>
 								</div>
-								<p>Aprenda de uma forma mais prática de onde você estiver!</p>
+								<p>Preencha novamente os campos com as alterações desejadas!</p>
 							</div>
 						</div>
 					</div>
@@ -52,53 +51,62 @@
 						<div class="form d-flex align-items-center">
 							<div class="content">
 
-								<div th:if="${param.error}">
-									<div class="alert alert-danger">Usuário ou senha
-										invalidos!</div>
+								<div th:if="${AlterUserErrorPassword}">
+									<div class="alert alert-danger">As senhas não coincidem</div>
 								</div>
-								<div th:if="${forgot}">
-									<div class="alert alert-success">
-										Um link foi enviado para seu email! <br> Verifique sua
-										caixa de entrada
-									</div>
-								</div>
-								<div th:if="${successReset}">
-									<div class="alert alert-success">Senha alterada com
+								<div th:if="${SucessaAlterUser}">
+									<div class="alert alert-success">Usuario alterado com
 										sucesso!</div>
 								</div>
-								<div th:if="${param.logout}">
-									<div class="alert alert-success">Logout realizado com
-										sucesso</div>
-								</div>
-								<div th:if="${registrationSucces}">
-									<div class="alert alert-success">Cadastro Realizado com
-										Sucesso!</div>
-								</div>
-								<div th:if="${statusUserError}">
-									<div class="alert alert-danger">
-										Essa conta ainda não foi ativada<br> Clique em cadastrar
-										para ativar.
-									</div>
-								</div>
 
-								<form id="login-form" role="form" th:action="login"
-									method="POST">
+
+
+								<form name="Aluno" id="login-form" method="post"
+									enctype="multipart/form-data" th:action="@{ExecAlterUser}">
+
 									<div class="form-group">
-										<input id="login-username" type="text" name="username"
-											required="" class="input-material"> <label
-											for="login-username" class="label-material">RGM</label>
+										<label for="login-username" class="label-materialcol-lg-2"
+											style="color: gray;">INDENTIFICADOR</label> <input
+											id="login-username" type="text" name="login" required=""
+											class="input-material" th:value="${id}" readonly>
+
+
 									</div>
 									<div class="form-group">
-										<input id="login-password" type="password" name="password"
-											required="" class="input-material"> <label
-											for="login-password" class="label-material">Senha</label>
+										<label for="login-username" class="label-material"
+											style="color: gray;">Nome Completo</label> <input
+											id="login-username" type="text" name="name" required=""
+											class="input-material">
 									</div>
-									<input type="submit" id="login" class="btn btn-primary"
-										value="Entrar">
+
+									<div class="form-group">
+										<label for="login-username" class="label-materialcol-lg-2"
+											style="color: gray;">E-mail</label> <input
+											id="login-username" type="text" name="email" required=""
+											class="input-material">
+									</div>
+
+
+
+									<div class="form-group">
+										<label for="login-password" class="label-material"
+											style="color: gray;">Senha</label> <input id="login-password"
+											type="password" name="password" required
+											class="input-material">
+
+									</div>
+
+									<div class="form-group">
+										<label for="login-password" class="label-material"
+											style="color: gray;">Confirme sua senha</label> <input
+											id="login-password" type="password" name="confirmpassword"
+											required class="input-material">
+
+									</div>
+
+									<input type="submit" class="btn btn-primary" value="Alterar">
+									<!-- This should be submit button but I replaced it with <a> for demo purposes-->
 								</form>
-								<a th:href="@{forgot}" class="forgot-pass">Esqueceu sua
-									senha?</a> <br> <small>Para primeiro acesso clique
-									aqui! </small><a th:href="@{VerificaLogin}" class="signup">Cadastrar</a>
 							</div>
 						</div>
 					</div>
