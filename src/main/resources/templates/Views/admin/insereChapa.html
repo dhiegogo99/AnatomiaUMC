@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Plataforma de Estudo UMC</title>
+<title>Plataforma de Ensino Virtual</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -43,9 +42,8 @@
 						<div class="info d-flex align-items-center">
 							<div class="content">
 								<div class="logo">
-									<h1>Insira o arquivo com os indentificadores</h1>
+									<h1>Adicionar Professor</h1>
 								</div>
-								<p>que você quer habilitar!</p>
 							</div>
 						</div>
 					</div>
@@ -57,55 +55,37 @@
 									<div class="alert alert-success">Todos os Registros foram inseridos com sucesso</div>
 								</div>
 								<form id="login-form" method="post" enctype="multipart/form-data">
-									<p style="font-size: 20px; color: #796AEE">Apenas serão
-										aceitos aquivos do tipo Excel, Importe a lista de usurios que
-										quer adicionar a plataforma.</p>
+									<h2 style="font-size: 20px; color: #796AEE">Insira usÃ¡rios individualmente</h2>
+									<h4 style="font-size: 12px; color: #8A94AD">Adicionar registros</h4>
 									<div class="form-group">
-										<div style="padding-top: -25">
-											<div class="row">
+										<div class="row">
 												<div class="col-md-6">
-
-													<form method="POST" enctype="multipart/form-data"
-														th:action="@{registerChapa}">
-														<label class="labelClass" style="font: #fff"
-															for='file'>Selecionar Registros &#187;</label>
-
-														<input class="labelClass" id='file'
-															style="background-color: #796AEE; /* Green */ border-radius: 80px; color: white; margin-right: 40px; padding: 30px; font-size: 16px; margin: 4px 2px; cursor: pointer;"
-															name="file" type="file"> </input>
-									
-									  <input class="labelClass" style=" height: 47px;  width: 207px;
-      text-align: center; background-color: #796AEE; border-radius: 10px;  font:#fff; cursor: pointer; margin: 10px;
-      padding: 6px 20px" type="text"  placeholder="APENAS 1 REGISTRO" value="">
-									
-									<input style=" right: 20px; position: absolute;  margin-right: 40px;"
-														type="submit" class="btn btn-primary" value="Importar">
+												 	<input style="height: 47px; width: 230px; text-align: left; background-color: #FFF; border-radius: 8px;
+												 		   color:#000; font-size: 18px; margin: 15px; padding: 6px 20px" type="text"></input>
 												</div>
-												<div class="col-md-4">
+										</div>
+									</div>
 								</form>
+								<form method="post" enctype="multipart/form-data" th:action="@{registerChapa}">				  
+									<h2 style="font-size: 20px; color: #796AEE;">Insira vÃ¡rios usÃ¡rios ao mesmo tempo</h2>
+									<h4 style="font-size: 12px; color: #8A94AD;">O arquivo deve estar em formato XLSX</h4>	
+										<label class="labelClass" for='file'>Selecionar Registros</label>
+											<input class="labelClass" id='file' name="arquivo" type="file"></input>
+								</form>
+									<input style="height: 47px; width: 180px; text-align: center; border-radius: 8px; right: 20px; margin-top: 40px;" type="submit" class="btn btn-primary" value="Importar"></input>
+									<br><br><small>Voltar para <a th:href="@{indexAdm}" class="signup">Home</a></small>
 							</div>
-						</div>
+						</div>	
 					</div>
-
 				</div>
-				<br /> <br /> <br /> <small>Retornar ao </small><a
-					th:href="@{indexAdm}" class="signup">Home</a>
+				
 			</div>
-
+			
 		</div>
+			<div class="copyrights text-center">
+				<p>Desenvolvido por <a href="http://www.umc.br/bem_vindo/" class="external">UMC</a></p>
+			</div>
 	</div>
-	</div>
-	</div>
-	</div>
-	<div class="copyrights text-center">
-		<p>
-			Desenvolvido por <a href="http://www.umc.br/bem_vindo/"
-				class="external">UMC</a>
-		</p>
-
-	</div>
-	</div>
-
 	<!-- Javascript files-->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="resources/vendor/popper.js/umd/popper.min.js">
