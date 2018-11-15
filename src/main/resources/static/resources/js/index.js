@@ -1,3 +1,31 @@
+
+
+
+
+/**
+ *  Metodo responsavel por adicionar um novo campo para inserir imagem
+ */
+
+$(document).ready(function(){
+    $("#novaImagem").click(function(){
+    	$("#fotos").append("<div class='box'>"+"<div class='js--image-preview'></div>"+
+    		"<div class='upload-options'>"+
+      "<label>"+"<input type='file' class='image-upload' accept='image/*'</imput>"+"</label>"+"</div>"+"</div>"+"<div class='col-md-1'>"+
+      
+      
+                         
+                           
+
+  
+"</div>");
+    });
+});
+
+
+
+
+
+
 function initImageUpload(box) {
   let uploadField = box.querySelector('.image-upload');
 
