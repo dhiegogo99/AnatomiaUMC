@@ -56,29 +56,10 @@
 									<div class="alert alert-danger">Usuário ou senha
 										invalidos!</div>
 								</div>
-								<div th:if="${forgot}">
-									<div class="alert alert-success">
-										Um link foi enviado para seu email! <br> Verifique sua
-										caixa de entrada
-									</div>
-								</div>
-								<div th:if="${successReset}">
-									<div class="alert alert-success">Senha alterada com
-										sucesso!</div>
-								</div>
+
 								<div th:if="${param.logout}">
 									<div class="alert alert-success">Logout realizado com
 										sucesso</div>
-								</div>
-								<div th:if="${registrationSucces}">
-									<div class="alert alert-success">Cadastro Realizado com
-										Sucesso!</div>
-								</div>
-								<div th:if="${statusUserError}">
-									<div class="alert alert-danger">
-										Essa conta ainda não foi ativada<br> Clique em cadastrar
-										para ativar.
-									</div>
 								</div>
 
 								<form id="login-form" role="form" th:action="login"
@@ -96,9 +77,10 @@
 									<input type="submit" id="login" class="btn btn-primary"
 										value="Entrar">
 								</form>
-								<a th:href="@{forgot}" class="forgot-pass">Esqueceu sua
-									senha?</a> <br> <small>Para primeiro acesso clique
-									aqui! </small><a th:href="@{VerificaLogin}" class="signup">Cadastrar</a>
+								<a th:href="@{forgot}" class="forgot-pass">Esqueceu sua senha?</a>
+								<br>
+								<small >Para primeiro acesso clique aqui! </small><a
+									th:href="@{VerificaLogin}" class="signup">Cadastrar</a>
 							</div>
 						</div>
 					</div>

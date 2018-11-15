@@ -65,16 +65,9 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
         user = ur.findByLogin(authentication.getName());
         
         session.setAttribute("logado", user);
-       if(!authentication.getAuthorities().contains("ADM")) {
-        	
-        	session.setMaxInactiveInterval(900);
-        }
-        
-       if(!user.getStatus()) {
-       	model.addAttribute("statusUserError", true);
-       	response.sendRedirect("/login");
 
-       }
+        
+        
         
 //        model.addAttribute("user", user);
       

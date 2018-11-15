@@ -21,17 +21,8 @@ $(document).ready(function () {
         e.preventDefault();
         $(this).parents('.card').fadeOut();
     });
- // ------------------------------------------------------- //
-    // FUNÇÃO TOLTIP
-    // ------------------------------------------------------ //
 
-    <script>
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();   
-    });
-    </script>
-    
-    
+
     // ------------------------------------------------------- //
     // Adding fade effect to dropdowns
     // ------------------------------------------------------ //

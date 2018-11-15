@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form name="reset" id="login-form" method="post"
+									enctype="multipart/form-data" th:action="@{/reset}">
+									<input type="password" name="password">
+									<input type="submit" value="vai caraio" >
+									
+<input type="hidden" name="token" th:value=${resetToken} >
+</form>
+
+</body>
+</html>

@@ -50,9 +50,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				//adm
 				.antMatchers("/indexAdm").hasAuthority("ADM")
 				.antMatchers("/insereRGM").hasAuthority("ADM")
-				.antMatchers("/insereChapa").hasAuthority("ADM")
-
-				.antMatchers("/AlterUser").authenticated()
 				
 				
 				
