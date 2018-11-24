@@ -17,6 +17,4 @@ public class Student {
 		return "Views/students/indexStudent";
 	}
 	
-
-	
 }
